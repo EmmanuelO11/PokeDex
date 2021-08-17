@@ -9,6 +9,7 @@ import com.platinumstandard.eonwumah.pokedex.network.PokemonService
 import com.platinumstandard.eonwumah.pokedex.utils.FIRST_PAGE
 import com.platinumstandard.eonwumah.pokedex.utils.NETWORK_LOG
 import java.lang.Exception
+import java.util.*
 
 class PokemonListPagingSource(private val service: PokemonService): PagingSource<Int, PokemonEntity>() {
     override fun getRefreshKey(state: PagingState<Int, PokemonEntity>): Int? {
@@ -20,9 +21,14 @@ class PokemonListPagingSource(private val service: PokemonService): PagingSource
             val nextPage: Int = params.key ?: FIRST_PAGE
             val response = service.getAllPokemon(offset = nextPage)
             val newEntity = response.results.mapIndexed { index, pokemonData ->
-                PokemonEntity(name = pokemonData.name,
+                val number = if(pokemonData.url.endsWith("/")) {
+                    pokemonData.url.dropLast(1).takeLastWhile { it.isDigit() }
+                } else {
+                    pokemonData.url.takeLastWhile { it.isDigit() }
+                }
+                PokemonEntity(name = pokemonData.name.capitalize(Locale.ROOT),
                     url = pokemonData.url,
-                    image = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png")
+                    image = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$number.png")
             }
             var nextOffset:Int? = null
             if (response.next != null) {
