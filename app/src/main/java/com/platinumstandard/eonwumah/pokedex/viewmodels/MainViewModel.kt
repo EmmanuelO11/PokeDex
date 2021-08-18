@@ -1,9 +1,13 @@
 package com.platinumstandard.eonwumah.pokedex.viewmodels
 
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import androidx.palette.graphics.Palette
 import com.platinumstandard.eonwumah.pokedex.models.PokemonEntity
 import com.platinumstandard.eonwumah.pokedex.network.PokemonService
 import com.platinumstandard.eonwumah.pokedex.network.RetrofitApi
@@ -18,8 +22,8 @@ class MainViewModel: ViewModel() {
         repository = PokemonRepository(service)
     }
 
-
     fun getAllPokemon(): Flow<PagingData<PokemonEntity>> {
         return repository.getAllPokemon().cachedIn(viewModelScope)
     }
+
 }

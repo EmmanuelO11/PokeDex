@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.map
 class PokemonRepository(private val apiService: PokemonService) {
     fun getAllPokemon(): Flow<PagingData<PokemonEntity>> {
         return Pager(
-            config = PagingConfig(pageSize = 30, enablePlaceholders = false),
+            config = PagingConfig(pageSize = 30),
             pagingSourceFactory = {PokemonListPagingSource(apiService)}
         ).flow
     }
