@@ -12,8 +12,3 @@ data class PokemonData(
     val url: String
 )
 
-data class PokemonEntity(
-    var name: String,
-    var url: String,
-    var image: String = ""
-)

@@ -20,7 +20,7 @@
             android:id="@+id/card_image"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:src="@drawable/ic_launcher_background"
+            tools:src="@drawable/ic_launcher_background"
             android:scaleType="fitXY"/>
 
         <TextView

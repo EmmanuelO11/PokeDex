@@ -1,6 +1,7 @@
 package com.platinumstandard.eonwumah.pokedex
 
 import android.app.Application
+import android.content.Context
 import coil.ImageLoader
 import coil.ImageLoaderFactory
 import coil.util.CoilUtils

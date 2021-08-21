@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detail_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/detail_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="150dp"
+            android:elevation="10dp"
+            android:padding="3dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="25dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.15" />
+
+                <TextView
+                    android:id="@+id/pokemon_id_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/guideline"
+                    tools:text="#247 Blaziken" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/type_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pokemon_id_text">
+
+                    <TextView
+                        android:id="@+id/pokemon_type1_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_rounded"
+                        android:maxLines="1"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="26sp"
+                        tools:backgroundTint="@color/orange"
+                        tools:text="Fire" />
+
+                    <TextView
+                        android:id="@+id/pokemon_type2_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_rounded"
+                        android:maxLines="1"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="26sp"
+                        tools:backgroundTint="@color/red"
+                        tools:text="Fighting" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/weight_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/type_layout">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/weight_image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_weight"
+                        app:layout_constraintEnd_toStartOf="@+id/divider"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/weight_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toStartOf="@id/divider"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/weight_image"
+                        tools:text="52.0kg" />
+
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="0.2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/gray"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/height_image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_height"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/divider"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/height_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/divider"
+                        app:layout_constraintTop_toBottomOf="@id/height_image"
+                        tools:text="1.9m" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/stat_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/weight_layout">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Base stats:"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/weight_layout" />
+
+                    <include
+                        android:id="@+id/hp_stat_bar"
+                        layout="@layout/pokemon_stat_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        android:id="@+id/atk_stat_bar"
+                        layout="@layout/pokemon_stat_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        android:id="@+id/def_stat_bar"
+                        layout="@layout/pokemon_stat_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        android:id="@+id/spatk_stat_bar"
+                        layout="@layout/pokemon_stat_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        android:id="@+id/spdef_stat_bar"
+                        layout="@layout/pokemon_stat_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <include
+                        android:id="@+id/speed_stat_bar"
+                        layout="@layout/pokemon_stat_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/pokemon_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:elevation="15dp"
+            android:scaleType="fitXY"
+            tools:src="@drawable/ic_pokemon_logo" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

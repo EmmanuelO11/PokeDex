@@ -4,19 +4,19 @@ import android.net.Uri
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.platinumstandard.eonwumah.pokedex.models.PokemonEntity
+import com.platinumstandard.eonwumah.pokedex.models.PokemonListEntity
 import com.platinumstandard.eonwumah.pokedex.network.PokemonService
 import com.platinumstandard.eonwumah.pokedex.utils.FIRST_PAGE
 import com.platinumstandard.eonwumah.pokedex.utils.NETWORK_LOG
 import java.lang.Exception
 import java.util.*
 
-class PokemonListPagingSource(private val service: PokemonService): PagingSource<Int, PokemonEntity>() {
-    override fun getRefreshKey(state: PagingState<Int, PokemonEntity>): Int? {
+class PokemonListPagingSource(private val service: PokemonService): PagingSource<Int, PokemonListEntity>() {
+    override fun getRefreshKey(state: PagingState<Int, PokemonListEntity>): Int? {
         return state.anchorPosition
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PokemonEntity> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PokemonListEntity> {
         return try {
             val nextPage: Int = params.key ?: FIRST_PAGE
             val response = service.getAllPokemon(offset = nextPage)
@@ -26,7 +26,7 @@ class PokemonListPagingSource(private val service: PokemonService): PagingSource
                 } else {
                     pokemonData.url.takeLastWhile { it.isDigit() }
                 }
-                PokemonEntity(name = pokemonData.name.capitalize(Locale.ROOT),
+                PokemonListEntity(name = pokemonData.name.capitalize(Locale.ROOT),
                     url = pokemonData.url,
                     image = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/$number.png")
             }

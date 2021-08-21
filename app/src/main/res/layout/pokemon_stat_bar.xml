@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/stat_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="1dp"
+        tools:progress="80"
+        tools:indicatorColor="@color/yellow"
+        app:indicatorDirectionLinear="startToEnd"
+        app:showDelay="3000"
+        app:trackColor="@color/gray"
+        app:trackCornerRadius="15dp"
+        app:trackThickness="30dp" />
+
+    <TextView
+        android:id="@+id/stat_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/stat_progress_bar"
+        android:layout_alignTop="@id/stat_progress_bar"
+        android:layout_alignBottom="@id/stat_progress_bar"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/transparent"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:text="HP:80"/>
+
+</RelativeLayout>
